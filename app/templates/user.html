@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  {{ user.name }}
+  {% endblock %}
+
+  {% block body %}
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <div class="row">
+    <h1 class="page-header">{{ user.name }}</h1>
+      <div class="col-xs-6 col-sm-6 placeholder">
+        <h5>{{ user.departmentone }}</h5>
+      </div>
+      <div class="col-sm-9 col-md-10">
+        <p align="left">{{ user.email }}</p>
+      </div>
+    </div>
+  {% endblock %}

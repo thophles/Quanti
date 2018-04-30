@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,700');
+
+* {
+  font-family: 'Arimo', sans-serif !important;
+}
+p, a, h3, h1, h2, h6, th, td, span {
+  color: #fff !important;
+}
+p {
+  font-size: .9em;
+}
+table
+{
+    counter-reset: rowNumber;
+}
+table tr > td:first-child
+{
+    counter-increment: rowNumber;
+}
+table tr td:first-child::before
+{
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+}
+body {
+  padding-top: 50px;
+}
+.navbar-inverse {
+  background-color: transparent !important;
+}
+#search {
+  text-align: center;
+}
+span {
+  font-size: .8em;
+}
+.customForm {
+   width: 50% !important;
+}
+li {
+  list-style: none;
+}
+body, html {
+  height: 100%;
+  min-height: 100%;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB) !important;
+  background-size: 400% 400% !important;
+	-webkit-animation: Gradient 25s ease infinite !important;
+	-moz-animation: Gradient 25s ease infinite !important;
+	animation: Gradient 25s ease infinite !important;
+  }
+
+  @-webkit-keyframes Gradient {
+  	0% {
+  		background-position: 0% 50%
+  	}
+  	50% {
+  		background-position: 100% 50%
+  	}
+  	100% {
+  		background-position: 0% 50%
+  	}
+  }
+
+  @-moz-keyframes Gradient {
+  	0% {
+  		background-position: 0% 50%
+  	}
+  	50% {
+  		background-position: 100% 50%
+  	}
+  	100% {
+  		background-position: 0% 50%
+  	}
+  }
+
+  @keyframes Gradient {
+  	0% {
+  		background-position: 0% 50%
+  	}
+  	50% {
+  		background-position: 100% 50%
+  	}
+  	100% {
+  		background-position: 0% 50%
+  	}
+  }
+input::placeholder {
+  color: #fff !important;
+  text-align: center;
+}
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+.navbar-fixed-top {
+  border: 0;
+}
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: transparent;
+    border-right: #fff 1px solid;
+    height: 50%;
+  }
+}
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: transparent;
+}
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+.tile {
+  background-color: transparent;
+  padding-left: 30px;
+  border-radius: 5px;
+  border: #fff solid 2px;
+  margin-bottom: 20px;
+}
+.tilePad {
+  padding: 0% 15% 0% 2%;
+}
+.tileHead {
+  padding: 2% 15% 0% 2%;
+}
+.tileFoot {
+  padding: 0% 15% 5% 2%;
+}
+.followers {
+  padding-right: 5%;
+}
+.navbar-brand {
+  color: #fff !important;
+}
+.searchBar {
+  margin: 0 auto !important;
+  width: 100% !important;
+  background-color: transparent !important;
+  border-top: none !important;
+  border-width: 1px !important;
+  box-shadow: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: 0px !important;
+  border-color: #fff !important;
+  color: #fff !important;
+}
+.formField {
+  padding: 0 30% !important;
+  color: #fff !important;
+  background-color: transparent !important;
+}
+.addButton, .descHead {
+  display: inline-block;
+}
+.addButton {
+  margin-left: 3%;
+  bottom: 4px;
+  position: relative;
+}
+.wrapper {
+  position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.indexHead, .indexSubHead {
+  color: #fff !important;
+  font-weight: 700;
+}
+.indexButton {
+  color: #fff !important;
+  border-color: #fff !important;
+  border-radius: 20px;
+  width: 150px;
+  background-color: transparent !important;
+}
+.removeButton {
+  color: #fff !important;
+  border-color: #fff !important;
+  border-radius: 20px;
+  width: 80px;
+  background-color: transparent !important;
+}
+.commentList {
+   padding: 0 auto !important;
+   margin: 0 auto !important;
+}
+.commentItem {
+  color: #fff !important;
+  border-color: #fff !important;
+  border-radius: 20px;
+  background-color: transparent !important;
+  text-align: left;
+  padding: 2% 3% !important;
+  margin-right: 10% !important;
+
+}
+.form-control {
+  background-color: transparent !important;
+  border-top: none !important;
+  border-width: 1px !important;
+  box-shadow: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: 0px !important;
+  border-color: #fff !important;
+  color: #fff !important;
+}
+.commentField, .commentField:active {
+  background-color: transparent !important;
+  border-top: none !important;
+  border-width: 1px !important;
+  box-shadow: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-radius: 0px !important;
+  border-color: #fff !important;
+  color: #fff !important;
+  text-align: center !important;
+  margin-right: 20px;
+}

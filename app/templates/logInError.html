@@ -1,0 +1,33 @@
+{%- extends "bootstrap/base.html" %}
+{%  import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12" align="center">
+      <h3>Welcome to Quanti.</h3>
+      <p>The platform made to enhance college experiences.</p>
+      <br>
+    </div>
+    <form action="" method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-group" align="center">
+        {{ wtf.form_field(form.email) }}
+        {{ wtf.form_field(form.password) }}
+        {{ wtf.form_field(form.remember_me) }}
+    <div class="form-group" align="center">
+      <button class="btn btn-primary">Log In</button>
+    </div>
+  </form>
+  <div>
+   <p> {{ message }}</p>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-xs-12" align="center">
+      <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign up.</a></p>
+    </div>
+  </div>
+  </div>
+</div>
+{%- endblock %}

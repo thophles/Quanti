@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}{% endblock %}</title>
+<link href="{{ url_for('static', filename='bootstrap.min.css', v=0.01) }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='style.css', v=0.01) }}" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('home') }}">Quanti</a>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form" method="GET" action="search">
+              <input type="text" class="form-control searchBar" name="query" placeholder="Find a course...">
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-4">
+
+        </div>
+    </div>
+    </div>
+  </nav
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-md-2 sidebar">
+        <form method="POST" action="{{ url_for('home') }}">
+          <button class="btn btn-primary indexButton">Home</button>
+        </form>
+        <br />
+        <form method="POST" action="{{ url_for('course') }}">
+          <button class="btn btn-primary indexButton">Courses</button>
+        </form>
+        <br />
+        <form method="POST" action="">
+          <button class="btn btn-primary indexButton">Recommended</button>
+        </form>
+        <br />
+        <form method="POST" action="{{ url_for('user', name=current_user.name) }}">
+          <button class="btn btn-primary indexButton">Profile</button>
+        </form>
+        <br />
+        <form method="POST" action="{{ url_for('logout') }}">
+          <button class="btn btn-primary indexButton">Log Out</button>
+        </form>
+      </div>
+  <div class="container">
+  {% block body %}{% endblock %}
+    </div>
+</body>
+  </html>

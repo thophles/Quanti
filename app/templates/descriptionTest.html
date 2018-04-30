@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ results.name }}</title>
+<link href="{{ url_for('static', filename='bootstrap.min.css', v=0.01) }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='style.css', v=0.01) }}" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <!-- header -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('home') }}">Quanti</a>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form" method="GET" action="search">
+              <input type="text" class="form-control searchBar" name="query" placeholder="Find a course...">
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-4">
+
+        </div>
+    </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="col-sm-9 col-md-10-offset-1 main">
+      <br />
+      <div class="row">
+      <h1 class="descHead">{{ results.name }}</h1>
+      <form class="addButton" method="POST" action="{{ url_for('add', course=results.id) }}">
+        <button class="btn btn-primary removeButton">Add</button>
+      </form>
+      <hr />
+      </div>
+      <!-- followers -->
+        <div class="col-xs-12 col-sm-3 col-md-3 followers">
+          <div class="row">
+            <div class="tile">
+              <h3 class="tileHead">Followers</h3>
+              {% for follower in followers %}
+              <p class="tileFoot">{{ follower.student_id }}</p>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="row">
+            <div class="tile">
+              <h3 class="tileHead">Syllabus</h3>
+              <div class="imageFile tileFoot">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="100" height="100" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- description, projects, and comments -->
+        <div class="col-xs-12 col-sm-9 col-md-7">
+          <div class="row">
+            <div class="tile">
+              <h3 class="tileHead">Description</h3>
+              <h6 class="tilePad">{{ results.department }}</h6>
+              <p class="tileFoot" align="left">{{ results.description }}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="tile">
+              <h3 class="tileHead">Projects</h3>
+              <div class="imageFile ">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="100" height="100" />
+              </div>
+              <br />
+              <form class="tileFoot" method="POST" action="{{ url_for('upload_file') }}">
+                <input class="descHead" type=file name=photo class="btn btn-primary removeButton"/>
+                <br />
+                <input type="submit" value="Upload" class="btn btn-primary removeButton" />
+              </form>
+            </div>
+          </div>
+          <div class="row">
+            <div class="tile">
+              <h3 class="tileHead">Reviews</h3>
+              <br />
+              <form action="{{ url_for('description', id=results.id) }}" method="post">
+              <div class="form-group" align="center">
+                  <input type="text" class="tilePad commentField" name="comment" placeholder="Write something">
+                  <button class="btn btn-primary removeButton">Submit</button>
+              </div>
+              {% if commentQuery != None %}
+              {% for c in commentQuery %}
+              <ul class="commentFoot">
+                <li class="commentList">
+                  <div>
+                      <button class="commentItem">{{ c.comment_name }}</button>
+                  </div>
+                  </li>
+              </ul>
+              {% endfor %}
+              {% endif %}
+            </div>
+        </div>
+        </div>
+      </div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+{%- extends "bootstrap/base.html" %}
+{%  import "bootstrap/wtf.html" as wtf %}
+{% block styles %}
+<link href="{{ url_for('static', filename='bootstrap.min.css', v=0.01) }}" rel="stylesheet" type="text/css">
+<link href="{{ url_for('static', filename='style.css', v=0.01) }}" rel="stylesheet" type="text/css">
+{%- endblock %}
+
+{% block content %}
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12" align="center">
+        <h1 class="indexHead">Welcome to Quanti.</h1>
+        <p class="indexSubHead">The platform made to enhance your college experience.</p>
+        <br>
+      </div>
+      <form action="" method="post">
+      {{ form.hidden_tag() }}
+      <div class="form-group formField" align="center">
+          {{ wtf.form_field(form.email) }}
+          {{ wtf.form_field(form.password) }}
+          {{ wtf.form_field(form.remember_me) }}
+      <div class="form-group" align="center">
+        <br />
+        <button class="btn btn-primary indexButton">Log In</button>
+      </div>
+    </form>
+    <br>
+    <div class="row">
+      <div class="col-xs-12" align="center">
+        <p class="indexSubHead">Don't have an account? <a class="indexSubHead" href="{{ url_for('signup') }}">Sign up.</a></p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+{%- endblock %}

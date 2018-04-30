@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Search
+  {% endblock %}
+
+  {% block body %}
+  <h4 align="center">{{ message }}</h4>
+  {% for q in qResults %}
+  <div class="col-xs-6 col-sm-3 placeholder">
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+    <h5 align="center"><a href="{{ url_for('description') }}" name="{{ qResults }}">{{ q.name }}</a></h5>
+    <span class="text-muted" align="center">{{ q.department }}</span>
+  </div>
+  {% endfor %}
+  {% endblock %}
